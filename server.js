@@ -1,6 +1,5 @@
 const express = require("express");
 
-
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -12,12 +11,7 @@ app.get('/', function name(req, res, next) {
     // res.json({ "data": "Hello World!" }).status(200);
 })
 
-app.get('/users', function name(req, res, next) {
-    res.send("User list!").status(200);
-})
-
-app.get('/users/new', function name(req, res, next) {
-    res.send("User new form!").status(200);
-})
+const userRouter = require('./routes/users');
+app.use('/users', userRouter)
 
 app.listen(3000);
